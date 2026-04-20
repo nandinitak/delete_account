@@ -1,92 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delete Account - SmartEduQuiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Request - SecureHomePlus</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00796B; /* Teal 700 */
+            --accent: #D32F2F; /* Red for deletion */
+            --bg-gradient: linear-gradient(135deg, #004D40 0%, #00796B 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --text-main: #FFFFFF;
+            --text-dim: #E0F2F1;
+        }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-    padding: 0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: var(--text-main);
+        }
 
-h1 {
-    color: #2c3e50;
-}
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
 
-h2 {
-    color: #34495e;
-    margin-top: 25px;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-p {
-    color: #555;
-    line-height: 1.6;
-}
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-ul, ol {
-    color: #555;
-}
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            background: linear-gradient(to right, #ffffff, #B2DFDB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: gray;
-}
-</style>
+        .status-badge {
+            background: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        }
 
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .policy-section {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .policy-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4DB6AC;
+            font-weight: bold;
+        }
+
+        .request-box {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FFFFFF;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: #E0F2F1;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px; }
+            .logo { font-size: 2rem; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <header>
+        <div class="status-badge">Data Safety Compliance</div>
+        <div class="logo">SecureHomePlus</div>
+        <p>Managed by Diwence Team</p>
+    </header>
 
-<h1>Delete Account – SmartEduQuiz</h1>
+    <section class="policy-section">
+        <h2>🔒 Account Deletion Policy</h2>
+        <p>In accordance with Google Play's User Data policy, SecureHomePlus allows users to request the permanent deletion of their account and all associated data. This action is irreversible.</p>
+        
+        <ul>
+            <li><strong>Authentication Data:</strong> Your login credentials and profile information will be wiped from our secure servers (Firebase).</li>
+            <li><strong>Local Records:</strong> Any evaluation surveys or safety reports stored locally in the app will be cleared upon account deletion from within the app.</li>
+            <li><strong>Processing Time:</strong> Requests submitted via web are processed within 7 business days.</li>
+        </ul>
+    </section>
 
-<p>If you wish to delete your SmartEduQuiz account and associated data, please follow the steps below.</p>
+    <div class="request-box">
+        <h1>Request Deletion</h1>
+        <p>To request account deletion, please enter your registered email address below. A confirmation link will be sent to you.</p>
+        
+        <div class="form-container">
+            <input type="email" placeholder="Enter your registered email" required>
+            <a href="mailto:support@securehomeplus.com?subject=Account Deletion Request - SecureHomePlus" class="btn">Submit Deletion Request</a>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+            Alternatively, you can delete your account directly from within the app by going to <strong>My Account > Delete Account</strong>.
+        </p>
+    </div>
 
-<h2>🔹 Option 1: Delete from App</h2>
-<ol>
-    <li>Open the SmartEduQuiz app</li>
-    <li>Go to <b>Profile / Settings</b></li>
-    <li>Tap on <b>Delete Account</b></li>
-    <li>Confirm your request</li>
-</ol>
-
-<h2>🔹 Option 2: Request via Email</h2>
-<p>Email us at: <b>your-email@gmail.com</b></p>
-<p>Please include your registered email ID.</p>
-
-<h2>🗑️ Data Deleted</h2>
-<ul>
-    <li>User profile information (name, email)</li>
-    <li>Quiz progress and scores</li>
-    <li>App usage data</li>
-</ul>
-
-<h2>⏳ Data Retention</h2>
-<p>Some data may be retained for up to <b>30 days</b> for legal and security purposes, after which it is permanently deleted.</p>
-
-<h2>👨‍💻 Developer Info</h2>
-<p><b>Developer:</b> Nandini Tak<br>
-<b>App:</b> SmartEduQuiz</p>
-
-<div class="footer">
-    Last updated: 2026
-</div>
-
+    <div class="footer">
+        &copy; 2025 SecureHomePlus | Developed by Diwence | <a href="#" style="color: inherit;">Privacy Policy</a>
+    </div>
 </div>
 
 </body>
